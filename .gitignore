@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+*.db
+.DS_Store
+.coverage
+.idea/
+/src
+/env
+/static/*
+!/static/media/

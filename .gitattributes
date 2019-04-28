@@ -1,0 +1,10 @@
+# Ignore with “export-ignore”.
+.gitattributes export-ignore
+.gitignore export-ignore
+readme.md export-ignore
+/deploy/ export-ignore
+/free_theme_flat/ linguist-vendored
+/free_theme_moderna/ linguist-vendored
+/free_theme_nova/ linguist-vendored
+/free_theme_solid/ linguist-vendored
+/static/ linguist-vendored

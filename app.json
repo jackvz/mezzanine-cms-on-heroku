@@ -1,0 +1,68 @@
+{
+    "name": "Mezzanine on Heroku",
+    "description": "A clean install of the Mezzanine CMS with the Cartridge e-commerce extension, with API for connecting mobile apps, that integrates with Stripe for payment processing",
+    "repository": "https://github.com/jackvz/mezzanine-cms-on-heroku",
+    "keywords": ["python", "mezzanine", "cartridge"],
+    "website": "http://mezzanine.jupo.org/",
+    "env": {
+        "THEME": {
+            "description": "Theme: Flat, Moderna, Nova or Solid, or the default Bootstrap theme. https://djskgen.herokuapp.com/",
+            "value": "Bootstrap",
+            "required": "false"
+        },
+        "SECRET_KEY": {
+            "description": "A secret key used to provide cryptographic signing, and should be set to a unique, unpredictable value.",
+            "generator": "secret"
+        },
+        "NEVERCACHE_KEY": {
+            "description": "Unique random string used for two-phased cache responses.",
+            "generator": "secret"
+        },
+
+        "SHOP_CURRENCY_LOCALE": {
+            "description": "Defaults to US. For example 'en_US.UTF-8', 'en_GB.UTF-8' or 'af_ZA.UTF-8'",
+            "value": "en_US.UTF-8",
+            "required": "false"
+        },
+        "AWS_ACCESS_KEY_ID": {
+            "description": "AWS security credentials. https://console.aws.amazon.com/iam/home#/security_credentials",
+            "value": ""
+        },
+        "AWS_SECRET_ACCESS_KEY": {
+            "description": "AWS security credentials.",
+            "value": ""
+        },
+        "AWS_STORAGE_BUCKET_NAME": {
+            "description": "AWS storage bucket. https://s3.console.aws.amazon.com/s3/home",
+            "value": ""
+        },
+        "STRIPE_API_KEY": {
+            "description": "The API key for Stripe payment processing. https://dashboard.stripe.com/",
+            "value": ""
+        },
+        "EMAIL_HOST": {
+            "description": "The host to use for sending email.",
+            "value": ""
+        },
+        "EMAIL_HOST_USER": {
+            "description": "Username to use for the account for sending email.",
+            "value": ""
+        },
+        "EMAIL_HOST_PASSWORD": {
+            "description": "Password to use for the account for sending email.",
+            "value": ""
+        },
+        "DEFAULT_FROM_EMAIL": {
+            "description": "Default system email address.",
+            "value": ""
+        }
+    },
+    "addons": [
+        {
+          "plan": "newrelic:wayne"
+      }
+    ],
+    "scripts": {
+        "postdeploy": "python manage.py createdb --noinput --nodata"
+    }
+}
